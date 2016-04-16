@@ -230,7 +230,6 @@ class GremlinClient extends EventEmitter {
     }
 
     this.observable(script, bindings, message)
-      .flatMap(({ result: { data }}) => data)
       .toArray()
       .subscribe(
         (results) => callback(null, results),
@@ -339,6 +338,8 @@ class GremlinClient extends EventEmitter {
         noContentMessage$,
         errorMessages$
       )
+      .flatMap(({ result: { data }}) => data)
+
       .takeUntil(terminationMessages$);
 
     return results$;
