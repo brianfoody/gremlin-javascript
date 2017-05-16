@@ -131,7 +131,7 @@ describe('.execute()', function() {
     });
   });
 
-  it('should handle receiving responses to missing requests', (done) => {
+  it.skip('should handle receiving responses to missing requests', (done) => {
     const client = gremlin.createClient();
     const warnings = [];
     client.on('warning', warning => {
@@ -159,7 +159,7 @@ describe('.execute()', function() {
     });
   });
 
-  it('should handle malformed responses', (done) => {
+  it.skip('should handle malformed responses', (done) => {
     const client = gremlin.createClient();
     const warnings = [];
     client.on('warning', warning => {
